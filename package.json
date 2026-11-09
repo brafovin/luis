@@ -1,0 +1,25 @@
+{
+  "name": "schwerter-welten",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brafovin/luis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brafovin/luis/issues"
+  },
+  "homepage": "https://github.com/brafovin/luis#readme",
+  "dependencies": {
+    "three": "^0.187.0",
+    "ws": "^8.22.2"
+  },
+  "type": "module"
+}

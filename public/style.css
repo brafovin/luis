@@ -1,0 +1,68 @@
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#111;font-family:system-ui,Segoe UI,Roboto,sans-serif;color:#fff;user-select:none}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+.hidden{display:none!important}
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,25,.82);z-index:10;overflow:auto;padding:12px}
+.panel{background:#1b1e2e;border:2px solid #44507a;border-radius:14px;padding:20px 24px;max-width:560px;width:100%;box-shadow:0 10px 40px #000a}
+.panel.wide{max-width:900px}
+h1{margin:0 0 4px;font-size:34px;color:#ffd34d;text-shadow:0 2px 0 #a06a00}
+h2{margin:0}h3{margin:14px 0 6px;color:#9fb4ff;font-size:15px;text-transform:uppercase;letter-spacing:1px}
+.sub,.hint{color:#aab;margin:4px 0 12px;font-size:14px}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}
+label{display:flex;flex-direction:column;font-size:12px;color:#aab;gap:3px;flex:1;min-width:120px}
+input,select{background:#0f1120;border:1px solid #44507a;border-radius:6px;color:#fff;padding:8px;font-size:15px}
+button{background:#33406b;color:#fff;border:1px solid #5a6aa5;border-radius:8px;padding:8px 14px;font-size:15px;cursor:pointer}
+button:hover{background:#455592}
+button:disabled{opacity:.4;cursor:default}
+button.big{background:#2e9b4f;border-color:#58d27b;font-size:20px;padding:12px 28px;width:100%}
+button.big:hover{background:#38b95e}
+.panel button{margin:4px 0}
+#pause .panel{text-align:center;max-width:340px}#pause button{width:100%}
+.cards{display:flex;gap:8px;flex-wrap:wrap}
+.card{flex:1;min-width:110px;padding:12px 8px;border-radius:10px;border:2px solid transparent;cursor:pointer;text-align:center;font-weight:600;text-shadow:0 1px 3px #000}
+.card.sel{border-color:#fff;box-shadow:0 0 14px #fff8}
+.card small{display:block;font-weight:400;opacity:.9}
+.cards.small .card{min-width:90px;padding:8px;background:#2a3050;font-size:13px}
+.cards.small .card.lock{opacity:.35;cursor:not-allowed}
+.cards.small .card.sel{background:#4a5aa0}
+details{color:#aab;font-size:13px;margin-top:8px}
+/* HUD */
+#hud{position:fixed;inset:0;pointer-events:none;z-index:5}
+#crosshair{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:22px;text-shadow:0 0 3px #000;opacity:.85}
+#topleft{position:absolute;left:12px;top:12px;width:260px}
+#hpbar{position:relative;height:20px;background:#0008;border:2px solid #000a;border-radius:6px;overflow:hidden}
+#hpfill{height:100%;background:linear-gradient(#ff5a5a,#c01f1f);width:100%}
+#hptext{position:absolute;inset:0;text-align:center;font-size:13px;line-height:18px;text-shadow:0 1px 2px #000}
+#goldtxt{margin:6px 0;font-weight:700;color:#ffd34d;text-shadow:0 1px 3px #000}
+#mission{background:#0009;border-left:4px solid #ffd34d;padding:8px 10px;border-radius:6px;font-size:14px;line-height:1.4}
+#mission b{color:#ffd34d}
+#topright{position:absolute;right:12px;top:12px;text-align:right;font-size:13px;text-shadow:0 1px 3px #000}
+#roominfo{background:#0009;padding:6px 10px;border-radius:6px;margin-bottom:6px}
+#players div{margin:2px 0}
+#banner{position:absolute;left:50%;top:22%;transform:translateX(-50%);font-size:34px;font-weight:800;text-align:center;text-shadow:0 3px 8px #000;color:#ffd34d;transition:opacity .5s;opacity:0;white-space:pre-line}
+#chatlog{position:absolute;left:12px;bottom:90px;width:360px;font-size:14px;text-shadow:0 1px 3px #000}
+#chatlog div{background:#0007;padding:3px 8px;margin-top:2px;border-radius:4px}
+#chatinput{position:absolute;left:12px;bottom:60px;width:360px;pointer-events:auto}
+#mode{position:absolute;left:50%;bottom:78px;transform:translateX(-50%);font-size:14px;background:#0009;padding:3px 12px;border-radius:12px}
+#hotbar{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px}
+.slot{width:56px;height:60px;background:#0009;border:2px solid #5a6aa5;border-radius:8px;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.slot.sel{border-color:#ffd34d;box-shadow:0 0 10px #ffd34d88}
+.slot .k{position:absolute;left:3px;top:1px;font-size:11px;color:#ccd}
+.slot .n{position:absolute;right:3px;bottom:1px;font-size:11px;color:#fff;text-shadow:0 1px 2px #000}
+.slot .blade{margin-bottom:6px;border-radius:2px 2px 0 0}
+.slot .cube{width:30px;height:30px;margin-bottom:12px;border:2px solid #0006}
+#damage{position:absolute;inset:0;background:radial-gradient(transparent 50%,#f00a);opacity:0;transition:opacity .25s}
+/* Shop */
+.shophead{display:flex;align-items:center;gap:16px}.shophead h2{flex:1}
+.gold{font-size:20px;color:#ffd34d;font-weight:700}
+.tabs{display:flex;gap:6px;margin:10px 0}.tabs button.on{background:#5a6aa5}
+#shopbody{max-height:62vh;overflow:auto;padding-right:6px}
+.item{display:flex;align-items:center;gap:12px;padding:8px;border-bottom:1px solid #2c3354}
+.prev{width:70px;height:96px;display:flex;align-items:flex-end;justify-content:center;flex:none;background:#0f1120;border-radius:8px;padding-bottom:6px}
+.blade{clip-path:polygon(50% 0,100% 12%,100% 100%,0 100%,0 12%);box-shadow:inset 0 0 0 1px #0004}
+.info{flex:1;min-width:0}.info b{font-size:16px}.info small{display:block;color:#aab}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.chip{border:2px solid #0008;width:46px;height:30px;border-radius:6px;cursor:pointer;font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 2px #000,0 0 3px #000;padding:0;text-align:center;line-height:1.1;position:relative}
+.chip.own{outline:2px solid #ffd34d}
+.chip.cant{filter:grayscale(.8) brightness(.6)}
+.tag{display:inline-block;background:#2e9b4f;border-radius:4px;padding:0 6px;font-size:12px;margin-left:6px}

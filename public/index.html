@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schwerter-Welten</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"/vendor/three/three.module.js"}}</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<!-- Hauptmenü -->
+<div id="menu" class="overlay">
+  <div class="panel wide">
+    <h1>⚔ Schwerter-Welten</h1>
+    <p class="sub">Erkunde Welten, erfülle Missionen, sammle hunderte Schwerter &amp; baue mit Freunden.</p>
+    <div class="row">
+      <label>Name <input id="name" maxlength="14" placeholder="Krieger"></label>
+      <label>Rüstung <select id="armor"></select></label>
+      <label>Raum-Code <input id="room" maxlength="8" placeholder="z. B. ABCD"></label>
+    </div>
+    <h3>Welt wählen</h3>
+    <div id="worlds" class="cards"></div>
+    <h3>Level / Mission</h3>
+    <div id="levels" class="cards small"></div>
+    <div class="row">
+      <button id="play" class="big">▶ Spielen</button>
+    </div>
+    <p class="hint">Freunde spielen mit: gleiche <b>Welt</b> + gleicher <b>Raum-Code</b> (oder Link teilen). Bis zu 8 Spieler.</p>
+    <details><summary>Steuerung</summary>
+      <p>WASD laufen · Shift rennen · Leertaste springen · Maus umsehen · <b>Linksklick</b> Schwert schwingen · <b>1-9</b> Schwert wählen · <b>E</b> Shop/Inventar · <b>B</b> Baumodus (Linksklick setzen, Rechtsklick abbauen, Mausrad/1-5 Block wählen) · <b>T</b> Chat · Esc Pause</p>
+    </details>
+  </div>
+</div>
+
+<!-- Pause -->
+<div id="pause" class="overlay hidden">
+  <div class="panel">
+    <h2>Pause</h2>
+    <button id="resume" class="big">Weiter</button>
+    <button id="openshop">🛒 Shop / Inventar</button>
+    <button id="tomenu">Hauptmenü</button>
+  </div>
+</div>
+
+<!-- Shop -->
+<div id="shop" class="overlay hidden">
+  <div class="panel wide">
+    <div class="shophead">
+      <h2>🛒 Shop</h2><div class="gold">🪙 <span id="shopgold">0</span></div>
+      <button id="closeshop">✕ Schließen</button>
+    </div>
+    <div class="tabs">
+      <button data-tab="swords" class="on">Schwerter kaufen</button>
+      <button data-tab="inv">Meine Schwerter (verkaufen)</button>
+      <button data-tab="blocks">Bausteine</button>
+    </div>
+    <div id="shopbody"></div>
+  </div>
+</div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="crosshair">+</div>
+  <div id="topleft">
+    <div id="hpbar"><div id="hpfill"></div><span id="hptext"></span></div>
+    <div id="goldtxt"></div>
+    <div id="mission"></div>
+  </div>
+  <div id="topright"><div id="roominfo"></div><div id="players"></div></div>
+  <div id="banner"></div>
+  <div id="chatlog"></div>
+  <input id="chatinput" class="hidden" maxlength="120" placeholder="Nachricht… (Enter)">
+  <div id="mode"></div>
+  <div id="hotbar"></div>
+  <div id="damage"></div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
